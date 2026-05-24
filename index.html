@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malabar - Premium Biryani & Kebabs</title>
+    <meta name="description" content="Experience iconic late-night biryani and kebabs at Malabar. Authentic flavors, legendary late-night dining culture.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#111111',
+                            maroon: '#5b1418',
+                            maroonLight: '#7a1a20',
+                            gold: '#d4af37',
+                            goldLight: '#f3e5ab',
+                            orange: '#ff8c00',
+                            cream: '#fffdd0'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'hero-pattern': "linear-gradient(to right bottom, rgba(10, 10, 10, 0.9), rgba(91, 20, 24, 0.8)), url('./assets/hero_bg.png')",
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .blur-mask {
+            filter: blur(4px);
+            user-select: none;
+            transition: filter 0.3s;
+        }
+        .blur-mask:hover {
+            filter: blur(0);
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-brand-cream font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 flex justify-between items-center border-b border-white/5 bg-brand-black/40 backdrop-blur-md">
+        <div class="flex items-center gap-3 cursor-pointer group">
+            <div class="w-10 h-10 rounded-full border border-brand-gold overflow-hidden">
+                <img src="./assets/logo.png" alt="Malabar Logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+            </div>
+            <h1 class="font-serif text-2xl md:text-3xl font-bold text-brand-gold tracking-wider">Malabar</h1>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 items-center text-sm uppercase tracking-widest font-medium">
+            <a href="#about" class="hover:text-brand-gold transition-colors">Legacy</a>
+            <a href="#menu" class="hover:text-brand-gold transition-colors">Menu</a>
+            <a href="#gallery" class="hover:text-brand-gold transition-colors">Gallery</a>
+            <a href="#locations" class="hover:text-brand-gold transition-colors">Locations</a>
+            <a href="#contact" class="bg-brand-gold text-brand-black px-6 py-2 rounded-sm hover:bg-brand-goldLight transition-colors font-bold">Order Now</a>
+        </div>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-2xl text-brand-gold">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-brand-black/95 z-40 hidden flex-col justify-center items-center gap-8 text-xl uppercase tracking-widest backdrop-blur-lg">
+        <button id="close-menu-btn" class="absolute top-6 right-6 text-3xl text-brand-gold">
+            <i class="fas fa-times"></i>
+        </button>
+        <a href="#about" class="mobile-link hover:text-brand-gold transition-colors">Legacy</a>
+        <a href="#menu" class="mobile-link hover:text-brand-gold transition-colors">Menu</a>
+        <a href="#gallery" class="mobile-link hover:text-brand-gold transition-colors">Gallery</a>
+        <a href="#locations" class="mobile-link hover:text-brand-gold transition-colors">Locations</a>
+        <a href="#contact" class="mobile-link text-brand-gold font-bold">Order Now</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-20 px-6 bg-cover bg-center bg-no-repeat reveal-on-scroll" style="background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.95)), url('./assets/hero_bg.png');">
+        <div class="text-center max-w-4xl mx-auto z-10">
+            <p class="text-brand-orange uppercase tracking-[0.3em] text-sm md:text-base font-semibold mb-4">Est. 1998</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight">
+                Downtown's Legendary <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-goldLight">Late-Night</span> Biryani
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                Experience the authentic flavors, vibrant energy, and iconic taste that has defined our city's night-time dining culture for generations.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center">
+                <a href="#menu" class="px-8 py-4 bg-transparent border border-brand-gold text-brand-gold hover:bg-brand-gold hover:text-brand-black transition-all duration-300 uppercase tracking-widest text-sm font-bold rounded-sm">Explore Menu</a>
+                <a href="#contact" class="px-8 py-4 bg-brand-gold text-brand-black hover:bg-brand-goldLight transition-all duration-300 uppercase tracking-widest text-sm font-bold rounded-sm shadow-[0_0_20px_rgba(212,175,55,0.3)]">Order Now</a>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-brand-gold text-2xl opacity-70"></i>
+        </div>
+    </section>
+
+    <!-- About / Legacy Section -->
+    <section id="about" class="py-24 px-6 md:px-12 bg-brand-black relative">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-maroon/10 via-brand-black to-brand-black"></div>
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center relative z-10">
+            <div class="reveal-left">
+                <h2 class="text-brand-orange uppercase tracking-[0.2em] text-sm font-semibold mb-3">Our Story</h2>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold mb-6 text-brand-cream">The Heartbeat of the <span class="text-brand-gold">Night Riders</span></h3>
+                <p class="text-gray-400 mb-6 leading-relaxed font-light text-lg">
+                    Malabar isn't just a restaurant; it's an emotion for our city. For years, we have been the ultimate destination for late-night cravings, family dinners, and foodies seeking the authentic taste of Mughlai and coastal cuisine.
+                </p>
+                <p class="text-gray-400 mb-8 leading-relaxed font-light text-lg">
+                    From our signature Mutton Biryani cooked on dum with tender meat and fragrant spices, to our smoky charcoal kebabs and fiery specials, every dish is a testament to our legacy.
+                </p>
+                <div class="grid grid-cols-2 gap-6 border-l-2 border-brand-maroonLight pl-6">
+                    <div>
+                        <h4 class="text-3xl font-serif text-brand-gold mb-1">11:45 <span class="text-sm">AM</span></h4>
+                        <p class="text-sm text-gray-400 uppercase tracking-wider">Opens Daily</p>
+                    </div>
+                    <div>
+                        <h4 class="text-3xl font-serif text-brand-gold mb-1">3:00 <span class="text-sm">AM</span></h4>
+                        <p class="text-sm text-gray-400 uppercase tracking-wider">Late Night Vibe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="relative reveal-right h-[600px]">
+                <img src="./assets/dining.png" alt="Late night dining at Malabar" class="w-full h-full object-cover rounded-sm shadow-2xl">
+                <div class="absolute -bottom-8 -left-8 bg-brand-dark p-6 border border-brand-maroonLight shadow-2xl">
+                    <p class="text-brand-gold font-serif text-5xl mb-2">10k+</p>
+                    <p class="text-sm uppercase tracking-widest text-gray-300">Biryanis Served Weekly</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Menu Section -->
+    <section id="menu" class="py-24 px-6 md:px-12 bg-brand-dark relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-brand-orange uppercase tracking-[0.2em] text-sm font-semibold mb-3">Signature Dishes</h2>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold text-brand-cream">The Royal <span class="text-brand-gold">Feast</span></h3>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="menu-card group relative overflow-hidden rounded-sm bg-brand-black border border-white/5 reveal-up" style="transition-delay: 100ms;">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="./assets/hero_bg.png" alt="Mutton Biryani" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 left-4">
+                            <span class="bg-brand-maroonLight text-xs uppercase tracking-widest px-3 py-1 rounded-sm text-white font-semibold">Bestseller</span>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-serif text-2xl font-bold text-brand-gold mb-2 group-hover:text-brand-goldLight transition-colors">Mutton Biryani</h4>
+                        <p class="text-gray-400 text-sm mb-4 font-light leading-relaxed">Tender mutton pieces slow-cooked with basmati rice and our secret blend of authentic spices on dum.</p>
+                        <div class="flex justify-between items-center border-t border-white/10 pt-4 mt-4">
+                            <span class="text-xl font-bold text-white">₹380</span>
+                            <button class="text-brand-orange hover:text-brand-gold transition-colors uppercase tracking-wider text-xs font-bold"><i class="fas fa-plus mr-1"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="menu-card group relative overflow-hidden rounded-sm bg-brand-black border border-white/5 reveal-up" style="transition-delay: 200ms;">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="./assets/kebabs.png" alt="Smoky Kebabs" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-serif text-2xl font-bold text-brand-gold mb-2 group-hover:text-brand-goldLight transition-colors">Charcoal Kebabs</h4>
+                        <p class="text-gray-400 text-sm mb-4 font-light leading-relaxed">Juicy chicken marinated in rich spices and smoked over natural charcoal for that authentic flavor.</p>
+                        <div class="flex justify-between items-center border-t border-white/10 pt-4 mt-4">
+                            <span class="text-xl font-bold text-white">₹290</span>
+                            <button class="text-brand-orange hover:text-brand-gold transition-colors uppercase tracking-wider text-xs font-bold"><i class="fas fa-plus mr-1"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="menu-card group relative overflow-hidden rounded-sm bg-brand-black border border-white/5 reveal-up" style="transition-delay: 300ms;">
+                    <div class="h-64 bg-zinc-900 overflow-hidden relative flex items-center justify-center">
+                        <i class="fas fa-fire text-6xl text-brand-maroon opacity-50"></i>
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-black to-transparent opacity-80"></div>
+                    </div>
+                    <div class="p-8">
+                        <h4 class="font-serif text-2xl font-bold text-brand-gold mb-2 group-hover:text-brand-goldLight transition-colors">Chicken 65</h4>
+                        <p class="text-gray-400 text-sm mb-4 font-light leading-relaxed">The House classic. Fiery, deep-fried chicken tossed with curry leaves, green chilies, and our spice mix.</p>
+                        <div class="flex justify-between items-center border-t border-white/10 pt-4 mt-4">
+                            <span class="text-xl font-bold text-white">₹260</span>
+                            <button class="text-brand-orange hover:text-brand-gold transition-colors uppercase tracking-wider text-xs font-bold"><i class="fas fa-plus mr-1"></i> Add</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center reveal-up">
+                <a href="#menu-full" class="inline-flex items-center gap-2 text-brand-gold hover:text-brand-orange transition-colors uppercase tracking-widest font-bold text-sm border-b border-brand-gold pb-1">
+                    View Full Menu <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Food Gallery Section -->
+    <section id="gallery" class="py-24 px-6 md:px-12 bg-brand-black">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-brand-orange uppercase tracking-[0.2em] text-sm font-semibold mb-3">Visuals</h2>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold text-brand-cream">The Malabar <span class="text-brand-gold">Experience</span></h3>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <!-- Large Image (Span 2 rows and cols) -->
+                <div class="col-span-2 row-span-2 group relative overflow-hidden rounded-sm reveal-up">
+                    <img src="./assets/dining.png" alt="Atmosphere" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-brand-black/40 group-hover:bg-brand-black/20 transition-colors"></div>
+                </div>
+                <!-- Small Images -->
+                <div class="group relative overflow-hidden rounded-sm reveal-up" style="transition-delay: 100ms;">
+                    <img src="./assets/hero_bg.png" alt="Biryani Close up" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-brand-black/40 group-hover:bg-brand-black/20 transition-colors"></div>
+                </div>
+                <div class="group relative overflow-hidden rounded-sm reveal-up" style="transition-delay: 200ms;">
+                    <img src="./assets/kebabs.png" alt="Kebabs Grill" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-brand-black/40 group-hover:bg-brand-black/20 transition-colors"></div>
+                </div>
+                <!-- Wide Image -->
+                <div class="col-span-2 group relative overflow-hidden rounded-sm reveal-up" style="transition-delay: 300ms;">
+                    <img src="./assets/dining.png" alt="Family Dining" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-brand-black/40 group-hover:bg-brand-black/20 transition-colors"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-24 px-6 md:px-12 bg-brand-black bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9IiMzMzMiLz48L3N2Zz4=')]">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <i class="fas fa-quote-right text-4xl text-brand-maroonLight mb-6"></i>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold text-brand-cream">Voices of <span class="text-brand-gold">Our Guests</span></h3>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-brand-dark p-8 rounded-sm border border-white/5 relative reveal-up">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 font-light italic mb-6">"The best late-night spot in town! When hunger strikes at 2 AM, Malabar is the only answer. The mutton biryani is simply out of this world."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-maroon flex items-center justify-center font-bold font-serif text-brand-gold">K</div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">Karthik R.</h5>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Local Guide</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-dark p-8 rounded-sm border border-white/5 relative reveal-up" style="transition-delay: 100ms;">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 font-light italic mb-6">"Their kebabs and grilled chicken are so authentic and smoky. A must-visit place for every foodie visiting. The vibe is amazing even at midnight!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-orange flex items-center justify-center font-bold font-serif text-brand-black">S</div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">Sarah Ahmed</h5>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Food Blogger</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-brand-dark p-8 rounded-sm border border-white/5 relative reveal-up" style="transition-delay: 200ms;">
+                    <div class="flex text-brand-gold mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-300 font-light italic mb-6">"Quantity and quality are unmatched. We always come here for family dinners. The Honey Chilli Chicken and Mutton Dum Biryani are our absolute favorites."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center font-bold font-serif text-brand-black">V</div>
+                        <div>
+                            <h5 class="text-white font-bold text-sm">Vijay M.</h5>
+                            <span class="text-xs text-gray-500 uppercase tracking-wider">Regular Customer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="py-24 px-6 md:px-12 bg-brand-dark relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 bg-brand-maroon rounded-full blur-[150px] opacity-20"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 reveal-up">
+                <h2 class="text-brand-orange uppercase tracking-[0.2em] text-sm font-semibold mb-3">Find Us</h2>
+                <h3 class="font-serif text-4xl md:text-5xl font-bold text-brand-cream">Our <span class="text-brand-gold">Outlets</span></h3>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Location 1 -->
+                <div class="group border border-white/10 hover:border-brand-gold/50 transition-colors p-8 bg-brand-black rounded-sm reveal-up">
+                    <div class="w-14 h-14 bg-brand-maroon/20 text-brand-gold rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl font-bold text-white mb-2">Downtown <span class="text-xs text-brand-orange ml-2 tracking-widest uppercase">Main</span></h4>
+                    <p class="text-gray-400 font-light text-sm mb-4 blur-mask" title="Masked for portfolio">123 Culinary Avenue, Food District, City Center 10001</p>
+                    <p class="text-brand-gold font-bold text-sm mb-6"><i class="far fa-clock mr-2"></i> 11:45 AM - 3:00 AM</p>
+                    <a href="javascript:void(0)" class="text-white uppercase tracking-wider text-xs font-bold hover:text-brand-gold transition-colors">Get Directions <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Location 2 -->
+                <div class="group border border-white/10 hover:border-brand-gold/50 transition-colors p-8 bg-brand-black rounded-sm reveal-up" style="transition-delay: 100ms;">
+                    <div class="w-14 h-14 bg-brand-maroon/20 text-brand-gold rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl font-bold text-white mb-2">Northside Hub</h4>
+                    <p class="text-gray-400 font-light text-sm mb-4 blur-mask" title="Masked for portfolio">456 Grand Boulevard, Northside Plaza, Suite 2B 10012</p>
+                    <p class="text-brand-gold font-bold text-sm mb-6"><i class="far fa-clock mr-2"></i> 11:45 AM - 2:30 AM</p>
+                    <a href="javascript:void(0)" class="text-white uppercase tracking-wider text-xs font-bold hover:text-brand-gold transition-colors">Get Directions <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Location 3 -->
+                <div class="group border border-white/10 hover:border-brand-gold/50 transition-colors p-8 bg-brand-black rounded-sm reveal-up" style="transition-delay: 200ms;">
+                    <div class="w-14 h-14 bg-brand-maroon/20 text-brand-gold rounded-full flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h4 class="font-serif text-2xl font-bold text-white mb-2">Coastal Drive</h4>
+                    <p class="text-gray-400 font-light text-sm mb-4 blur-mask" title="Masked for portfolio">789 Coastal Highway, Beachfront Promenade 10098</p>
+                    <p class="text-brand-gold font-bold text-sm mb-6"><i class="far fa-clock mr-2"></i> 12:00 PM - 2:00 AM</p>
+                    <a href="javascript:void(0)" class="text-white uppercase tracking-wider text-xs font-bold hover:text-brand-gold transition-colors">Get Directions <i class="fas fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-brand-black pt-24 pb-10 px-6 md:px-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto grid lg:grid-cols-4 gap-12 mb-16">
+            <div class="lg:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-full border border-brand-gold overflow-hidden bg-brand-dark">
+                        <img src="./assets/logo.png" alt="Malabar Logo" class="w-full h-full object-cover">
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-brand-gold tracking-wider">Malabar</h2>
+                </div>
+                <p class="text-gray-400 font-light leading-relaxed max-w-md mb-8">
+                    The city's iconic late-night biryani and kebab destination. Serving authentic Mughlai, South Indian, and coastal delicacies for true food lovers.
+                </p>
+                <div class="flex gap-4">
+                    <a href="javascript:void(0)" class="w-10 h-10 rounded-full bg-brand-dark border border-white/10 flex items-center justify-center text-white hover:bg-brand-maroon hover:border-brand-maroon transition-all"><i class="fab fa-instagram"></i></a>
+                    <a href="javascript:void(0)" class="w-10 h-10 rounded-full bg-brand-dark border border-white/10 flex items-center justify-center text-white hover:bg-[#25D366] hover:border-[#25D366] transition-all"><i class="fab fa-whatsapp"></i></a>
+                    <a href="javascript:void(0)" class="w-10 h-10 rounded-full bg-brand-dark border border-white/10 flex items-center justify-center text-white hover:bg-brand-gold hover:text-brand-black transition-all"><i class="fab fa-facebook-f"></i></a>
+                    <a href="javascript:void(0)" class="w-10 h-10 rounded-full bg-brand-dark border border-white/10 flex items-center justify-center text-white hover:bg-[#fc8019] hover:border-[#fc8019] transition-all"><i class="fas fa-utensils"></i></a>
+                </div>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Quick Links</h4>
+                <ul class="space-y-4 text-gray-400 font-light text-sm">
+                    <li><a href="#about" class="hover:text-brand-gold transition-colors">Our Legacy</a></li>
+                    <li><a href="#menu" class="hover:text-brand-gold transition-colors">Signature Menu</a></li>
+                    <li><a href="#gallery" class="hover:text-brand-gold transition-colors">Food Gallery</a></li>
+                    <li><a href="#locations" class="hover:text-brand-gold transition-colors">Locations & Timings</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Contact & Order</h4>
+                <ul class="space-y-4 text-gray-400 font-light text-sm mb-6">
+                    <li class="flex items-start gap-3"><i class="fas fa-phone-alt text-brand-gold mt-1"></i> <a href="javascript:void(0)" class="hover:text-brand-gold transition-colors blur-mask" title="Masked for portfolio">+1 (555) 019-••••</a></li>
+                    <li class="flex items-start gap-3"><i class="fas fa-envelope text-brand-gold mt-1"></i> <a href="javascript:void(0)" class="hover:text-brand-gold transition-colors blur-mask" title="Masked for portfolio">contact@malabar.•••</a></li>
+                </ul>
+                <div class="flex flex-col gap-3">
+                    <a href="javascript:void(0)" class="w-full bg-[#25D366] text-white py-3 px-4 rounded-sm font-bold flex justify-center items-center gap-2 hover:bg-[#128C7E] transition-colors"><i class="fab fa-whatsapp text-xl"></i> Order via WhatsApp</a>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="javascript:void(0)" class="bg-zinc-800 text-white py-2 px-3 rounded-sm font-bold text-xs flex justify-center items-center gap-2 hover:bg-[#fc8019] transition-colors border border-white/5">Delivery App</a>
+                        <a href="javascript:void(0)" class="bg-zinc-800 text-white py-2 px-3 rounded-sm font-bold text-xs flex justify-center items-center gap-2 hover:bg-[#cb202d] transition-colors border border-white/5">Takeout App</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-gray-500 text-xs uppercase tracking-widest">&copy; 2026 Malabar. All rights reserved. (Portfolio Concept)</p>
+            <p class="text-gray-500 text-xs uppercase tracking-widest">Designed for the Night Riders.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="javascript:void(0)" class="fixed bottom-6 right-6 bg-[#25D366] text-white w-14 h-14 rounded-full flex justify-center items-center text-3xl shadow-lg hover:scale-110 hover:bg-[#128C7E] transition-all z-50 animate-bounce">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
